@@ -1,0 +1,229 @@
+@use "../abstracts/helpers" as v;
+// -----------------------------------------------------------------------------
+// Esse arquivo contem estilos especificos da pagina inscrição
+// -----------------------------------------------------------------------------
+.secao {
+  &--hero {
+    background-image: url(https://assets-global.website-files.com/61b9e0dd381626819c8d4f83/64957938a8a62d8071397ed5_pgc-python-bg1.webp);
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    padding-bottom: 0;
+    overflow: hidden;
+
+    @include v.respond(small) {
+      background-image: url(https://assets-global.website-files.com/61b9e0dd381626819c8d4f83/6495797b607323070bcf5e17_pgc-python-bg1-mobile.webp);
+    }
+    @include v.respond(tiny) {
+      padding: 3.88rem 2rem 0;
+    }
+  }
+
+  &--disclaimer {
+    background-color: v.$cor-cinza;
+    padding: 3.12rem 2rem;
+    box-shadow: 0 0.5rem 1rem -0.2rem rgba(black, 0.15);
+  }
+
+  &--organizando {
+    background-image: url(https://assets-global.website-files.com/61b9e0dd381626819c8d4f83/62cefb1ecf7f4662905b5b1e_%5BBACKGROUND%5D%20-%20BANNER%2005%20-%20desktop.webp);
+    background-position-x: 50%;
+    background-position-y: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 21rem;
+    padding-bottom: 0;
+    margin-top: -10rem;
+
+    @include v.respond(small) {
+      background-image: url(https://assets-global.website-files.com/61b9e0dd381626819c8d4f83/62cefd163d834a0c0b773480_%5BBACKGROUND%5D%20-%20BANNER%2005%20-%20mobile.webp);
+      padding-top: 12rem;
+      margin-top: -5rem;
+    }
+  }
+}
+
+.container {
+  &--hero {
+    position: relative;
+    align-items: end;
+    width: 100%;
+
+    @include v.respond(small) {
+      flex-flow: column;
+      align-items: center;
+      gap: 3.12rem;
+    }
+  }
+
+  &--passo,
+  &--eventos {
+    @include v.flex($direction: column, $gap: 6rem);
+
+    @include v.respond(small) {
+      gap: 3.9rem;
+    }
+  }
+
+  &--organizando {
+    position: relative;
+    width: 100%;
+
+    @include v.respond(small) {
+      flex-flow: column;
+      align-items: center;
+      gap: 2rem;
+    }
+  }
+}
+
+.grid {
+  &--passo {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 6rem;
+    column-gap: 3rem;
+
+    @include v.respond(small) {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 3.12rem;
+      column-gap: 2rem;
+    }
+    @include v.respond(tiny) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--eventos {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 4rem;
+
+    @include v.respond(small) {
+      gap: 2rem;
+    }
+
+    @include v.respond(tiny) {
+      grid-template-columns: 1fr;
+      align-self: center;
+      gap: 3.12rem;
+    }
+  }
+}
+
+// HERO
+
+.div-lira {
+  position: absolute;
+  transform: translateX(7%);
+  display: flex;
+  width: 70rem;
+  right: 0;
+  bottom: 0;
+
+  @include v.respond(small) {
+    position: relative;
+    transform: none;
+    width: 100%;
+    max-width: 53rem;
+  }
+}
+
+// DISCLAIMER
+
+.disclaimer__paragrafo {
+  font-size: 1.33rem;
+}
+
+// PASSOS
+.passos-cabecalho {
+  @include v.flex($align: center, $gap: 1.6rem);
+}
+
+.img-seta {
+  width: 4.1rem;
+  @include v.respond(small) {
+    width: 3.98rem;
+  }
+  @include v.respond(tiny) {
+    width: 3rem;
+  }
+}
+
+.img-lira {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+
+  @include v.respond(small) {
+    grid-row: auto;
+    grid-column: 1 / span 2;
+    max-width: 27.5rem;
+    justify-self: center;
+  }
+  @include v.respond(tiny) {
+    grid-row: auto;
+    grid-column: auto;
+  }
+}
+
+// EVENTOS
+.cabecalho-titulos {
+  @include v.flex($align: center, $gap: 1.6rem);
+}
+
+.img-eventos {
+  border-radius: 2rem;
+  transition: transform 200ms ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @include v.respond(tiny) {
+    max-width: 48rem;
+  }
+}
+
+// ORGANIZANDO
+
+.organizando {
+  @include v.flex($direction: column, $gap: 3.12rem);
+  max-width: 50%;
+  width: 100%;
+  margin-bottom: 6.1rem;
+  color: #fff;
+
+  @include v.respond(small) {
+    align-items: center;
+    margin-bottom: 0;
+  }
+  @include v.respond(tiny) {
+    max-width: 53rem;
+  }
+  &__cabecalho {
+    border-left: solid 4px v.$cor-amarelo;
+    padding-left: 2rem;
+  }
+
+  &__textos {
+    @include v.flex($direction: column, $gap: 2rem);
+
+    & span {
+      color: v.$cor-amarelo;
+      font-weight: 600;
+    }
+  }
+}
+
+.img-lira-hashtag {
+  position: absolute;
+  width: 45rem;
+  bottom: 0;
+  right: 0;
+
+  @include v.respond(small) {
+    position: static;
+    max-width: 40rem;
+    width: 100%;
+  }
+}

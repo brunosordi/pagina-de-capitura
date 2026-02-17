@@ -1,0 +1,39 @@
+@use "../abstracts/helpers" as v;
+
+.rodape {
+  padding: 4.88rem 2rem;
+
+  &__logo {
+    width: 3.7rem;
+    height: 3.7rem;
+
+    @include v.respond(tiny) {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+}
+
+.container--rodape {
+  justify-content: end;
+  align-items: center;
+  gap: 0.8rem;
+
+  @include v.respond(small) {
+    justify-content: center;
+  }
+
+  @include v.respond(tiny) {
+    flex-flow: column;
+    justify-content: center;
+
+    & p {
+      display: none;
+    }
+  }
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

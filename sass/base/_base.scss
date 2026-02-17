@@ -1,0 +1,28 @@
+@use "../abstracts/helpers" as v;
+
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include v.respond(big) {
+    font-size: 56.25%;
+  }
+  @include v.respond(medium) {
+    font-size: 50%;
+  }
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
